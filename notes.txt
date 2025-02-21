@@ -1,0 +1,13 @@
+STEP-1 : ShuffleCards [App.js, App.css]
+STEP-2 : Creating a Grid [App.js, App.css]
+STEP-3 : Creating a SingleCard Component [SingleCard.jsx, SingleCard.css]
+STEP-4 : making card choices
+            - Click event in back of the card [handleClick()]
+            - pass props in SingleCard [handleChoice()]
+STEP-5 : Comparing Card Choices
+STEP-6 : Matching Card 
+STEP-7 : Flipping Card
+            - pass flipped props with 3 conditions in SingleCard.jsx
+STEP-8 : Flipping Animation
+STEP-9 : Disabled Selection
+STEP-9 : Turns, Start Game Automatically
