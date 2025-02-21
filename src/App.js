@@ -23,8 +23,8 @@ function App() {
     const [disabled, setDisabled] = useState(false);
 
     // Sound effects
-    const flipSound = new useRef(Audio('/sound/flipped.mp3'));
-    const matchSound = new useRef(Audio('/sound/match.mp3'));
+    const flipSound = useRef(new Audio('/sound/flipped.mp3'));
+    const matchSound = useRef(new Audio('/sound/match.mp3'));
 
     // Step-1 : shuffle the cards
     const shuffleCards = () => {
