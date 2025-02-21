@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./App.css";
 import { SingleCard } from "./components/SingleCard";
 
@@ -23,8 +23,8 @@ function App() {
     const [disabled, setDisabled] = useState(false);
 
     // Sound effects
-    const flipSound = new Audio('/sound/flipped.mp3');
-    const matchSound = new Audio('/sound/match.mp3');
+    const flipSound = new useRef(Audio('/sound/flipped.mp3'));
+    const matchSound = new useRef(Audio('/sound/match.mp3'));
 
     // Step-1 : shuffle the cards
     const shuffleCards = () => {
@@ -44,7 +44,7 @@ function App() {
 
     // step-4 : handleChoice
     const handleChoice = (card) => {
-        flipSound.play();
+        flipSound.current.play();
         choiceOne ? setChoiceTwo(card) : setChoiceOne(card);
     }
 
@@ -54,7 +54,7 @@ function App() {
         setDisabled(true);
         if(choiceOne.src === choiceTwo.src) {
           setTimeout(() => {
-            matchSound.play();
+            matchSound.current.play();
             setCards((prevCards => prevCards.map((card) => {
               if(card.src === choiceOne.src){
                 return {...card, matched: true}
@@ -70,7 +70,7 @@ function App() {
           }, 1000);
         } 
       }
-    }, [choiceOne, choiceTwo])
+    }, [choiceOne, choiceTwo, matchSound])
 
     console.log(cards);
 
